@@ -1,0 +1,31 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Pesquisa</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)" [debounce]="500" placeholder="Pesquisa..."></ion-searchbar>
+
+    <ion-card *ngFor="let item of searchItems" (click)="goToProductDetailPage(item)">
+        <ion-item>
+            <ion-icon name="ios-checkmark-outline" item-start large color="danger"></ion-icon>
+            <h2>{{item.title}}</h2>
+            <p>Honda</p>
+        </ion-item>
+
+    </ion-card>
+    <ion-item *ngIf="!isEmpty">
+        <ion-badge color="danger">O que Procura Hoje?</ion-badge>
+    </ion-item>
+
+</ion-content>
