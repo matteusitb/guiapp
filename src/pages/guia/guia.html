@@ -1,11 +1,6 @@
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>Guia</ion-title>
-        <ion-buttons end>
-            <button ion-button right icon-only (click)="openSearch()">
-                  <ion-icon name="md-search"></ion-icon>
-              </button>
-        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -14,11 +9,35 @@
 
     <ion-card *ngFor="let item of searchItems" (click)="goToProductDetailPage(item)">
         <ion-item>
-            <ion-icon name="ios-checkmark-outline" item-start large color="danger"></ion-icon>
+            <ion-icon name="ios-checkmark-outline" item-start large color="primary"></ion-icon>
             <h2>{{item.title}}</h2>
-            <p>Honda</p>
+            <p *ngIf="item.address !==undefined"><strong><ion-icon name="pin"></ion-icon> Endereço:</strong> {{ item.address }}</p>
         </ion-item>
-
+        <ion-card-content>
+            <div text-center>
+                <a href="{{item.facebook}}" *ngIf="item.facebook !==undefined" (click)="share('facebook', item.facebook)" ion-button icon-only color="facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="twitter://{{item.twitter}}" *ngIf="item.twitter !==undefined" (click)="share('twitter', item.twitter)" ion-button icon-only color="twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone={{item.whatsapp}}" *ngIf="item.whatsapp !==u ndefined" (click)="share( 'whatsapp', item.whatsapp)" ion-button icon-only color="whatsapp">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+                <a href="gplus://{{googleplus}}" *ngIf="item.googleplus !==undefined" (click)="share('googleplus', item.googleplus)" ion-button icon-only color="googleplus">
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                </a>
+                <a href="mailto:{{item.mail}}" *ngIf="item.mail !==undefined" (click)="share('mail', item.mail)" ion-button icon-only color="mail">
+                    <ion-icon name="mail"></ion-icon>
+                </a>
+            </div>
+        </ion-card-content>
+        <div text-center>
+            <a href="tel:{{item.tel}}" *ngIf="item.tel !==undefined" ion-button icon-left text-center>
+                <ion-icon name="call"></ion-icon>
+                <div>{{item.tel}}</div>
+            </a>
+        </div>
     </ion-card>
     <div class="infor" *ngIf="!isEmpty" text-center>
         <ion-badge color="secondary">

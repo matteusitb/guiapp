@@ -4,9 +4,6 @@ import {HttpClient} from '@angular/common/http';
 import { GuiaDetalhePage } from '../../pages/guia-detalhe/guia-detalhe';
 import { DataProvider } from '../../providers/data/data';
 
-import {SearchPage} from '../../pages/search/search';
-
-
 @Component({
   selector: 'page-guia',
   templateUrl: 'guia.html'
@@ -60,10 +57,7 @@ export class GuiaPage{
       this.allCategory = response;
     })
   }
-  openSearch(){
-    this.navCtrl.push(SearchPage);
-  }
-
+ 
   goToDetailsOfCategory(category){
     this.navCtrl.push(GuiaDetalhePage, {
       categoryDetails: category

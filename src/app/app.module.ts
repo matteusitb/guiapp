@@ -13,7 +13,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data'; 
 
-import {SearchPage} from '../pages/search/search';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import {SearchPage} from '../pages/search/search';
     AnunciePage,
     TabsPage,
     GuiaPage,
-    GuiaDetalhePage,
-    SearchPage
+    GuiaDetalhePage
   ],
   imports: [
     BrowserModule,
@@ -35,8 +33,7 @@ import {SearchPage} from '../pages/search/search';
     AnunciePage,
     TabsPage,
     GuiaPage,
-    GuiaDetalhePage,
-    SearchPage
+    GuiaDetalhePage
   ],
   providers: [
     StatusBar,
